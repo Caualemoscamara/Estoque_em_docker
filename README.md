@@ -1,1 +1,0 @@
-# Estoque_em_docker
