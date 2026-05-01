@@ -1,6 +1,7 @@
 #include "protocol.h"
 
 // This is the server side of the application. It listens for incoming connections and processes requests from clients.
+// falta implementar o uso de threads para lidar com multiplas conexoes e evitar bloqueio do servidor
 #include <stdbool.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
