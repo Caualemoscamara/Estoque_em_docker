@@ -73,6 +73,12 @@ int main(){
         if (read(new_socket, buffer, TAMANHO_BUFFER) < 0) {
             perror("read");
             exit(EXIT_FAILURE);
+        } else {
+            printf("Requisição recebida: OK!\n");
+            if (!processRequest(new_socket, buffer)) {
+                printf("Conexão fechada pelo cliente.\n");
+                break; // Sair do loop se a conexão foi fechada e fechar threads
+            }
         }
 
         // Enviar resposta
