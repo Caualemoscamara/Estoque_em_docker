@@ -1,8 +1,4 @@
 #include "protocol.h"
-#include <arpa/inet.h>
-#include <stdbool.h>
-
-#define PORTA 8080
 
 int main(){
     //Variáveis
@@ -17,7 +13,7 @@ int main(){
 
     //Definir endereço
     addr.sin_family = AF_INET;
-    addr.sin_port = htons(PORTA);
+    addr.sin_port = htons(PORT);
     if (inet_pton(AF_INET, "127.0.0.1", &addr.sin_addr) <= 0) {
         perror("inet_pton");
         return 1;
@@ -34,17 +30,20 @@ int main(){
     //Coração do usuário
     char buffer[TAMANHO_BUFFER];
     while(true){
+        memset(buffer, 0, sizeof(buffer));
         //Lê input
         printf("> ");
         if(fgets(buffer, TAMANHO_BUFFER, stdin) == NULL)
             break;
-
+        buffer[strlen(buffer)-1] = '\0';
+        printf("Conteúdo pré send: %s\n", buffer);
         //Interpretar request
         Request req;
-        parse_request(buffer, &req);
+        interpretar_cmd(buffer, &req);
 
+        printf("Request: %s %s %d\n", req.comando, req.item, req.quantidade);
         //Envia comando de saída para o servidor
-        if (is_command(&req, CMD_EXIT)) {
+        if (e_comando(&req, CMD_EXIT) == 0){
             send(usr_fd, buffer, strlen(buffer), 0);
             printf("Encerrando Cliente %d\n", usr_fd);
             break;
@@ -71,7 +70,7 @@ int main(){
         buffer[bytes] = '\0';
 
         //Output
-        printf("Servidor: %s\n", buffer);
+        printf("%s", buffer);
     }
     //encerra conexão com o servidor
     close(usr_fd);
