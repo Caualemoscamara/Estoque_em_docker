@@ -63,4 +63,3 @@ static inline int e_comando(Request* req, const char*cmd){
     return strcmp(req->comando, cmd);
 } 
 #endif
-
