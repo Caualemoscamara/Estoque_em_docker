@@ -12,6 +12,7 @@ int main(){
     }
 
     //Definir endereço
+    // configurar com o servidor host 
     addr.sin_family = AF_INET;
     addr.sin_port = htons(PORT);
     if (inet_pton(AF_INET, "127.0.0.1", &addr.sin_addr) <= 0) {
@@ -35,7 +36,7 @@ int main(){
         printf("> ");
         if(fgets(buffer, TAMANHO_BUFFER, stdin) == NULL)
             break;
-        buffer[strlen(buffer)-1] = '\0';
+        //buffer[strlen(buffer)-1] = '\0';
         printf("Conteúdo pré send: %s\n", buffer);
         //Interpretar request
         Request req;

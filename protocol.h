@@ -32,6 +32,8 @@ pthread.h, semaphore.h*/
 #define CMD_STATUS "STATUS"
 #define CMD_EXIT   "EXIT"
 
+
+
 //Define a estrutura do pedido feito pelo cliente requisiscao
 typedef struct{
     char comando[10];
