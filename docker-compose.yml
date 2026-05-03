@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   server:
     build: .
@@ -13,7 +11,7 @@ services:
   client:
     build: .
     container_name: client
-    command: ./client
+    command: ./clientDocker server 8080
     stdin_open: true
     tty: true
     depends_on:
