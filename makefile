@@ -1,7 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -pthread
 
-# Targets
 all: server client clientDocker clientNGROK
 
 server: server.c protocol.h

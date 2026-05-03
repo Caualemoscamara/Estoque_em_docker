@@ -36,7 +36,12 @@ O projeto utiliza:
 
 ```bash
 docker compose up --build
+
+docker compose up server
+docker run -p 8080:8080 speedowagon/estoque
+
 ```
+
 
 ---
 
@@ -46,9 +51,26 @@ Em outro terminal:
 
 ```bash
 sudo docker exec -it client ./clientDocker server 8080
+
+ou 
+
+sudo docker run -it --rm --network bridge speedowagon/estoque ./clientDocker host.docker.internal 8080
+
 ```
 
 ---
+
+## 3. EM SUMA COMO RODAR 
+
+No terminal apos o download da imagem
+
+```bash
+1. Rodar o servidor primeiro server:
+   docker run -p 8080:8080 speedowagon/estoque
+
+2. Em outro terminal rodar o cliente:
+   docker run -it --network bridge speedowagon/estoque ./clientDocker server 8080
+```
 
 ## 💻 Comandos disponíveis
 
