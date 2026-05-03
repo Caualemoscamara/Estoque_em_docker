@@ -1,6 +1,6 @@
 services:
   server:
-    build: .
+    image: speedowagon/estoque
     container_name: server
     command: ./server
     ports:
@@ -9,7 +9,7 @@ services:
       - appnet
 
   client:
-    build: .
+    image: speedowagon/estoque
     container_name: client
     command: ./clientDocker server 8080
     stdin_open: true

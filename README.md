@@ -119,6 +119,7 @@ definido no `Dockerfile`.
 ## 📦 Docker Hub
 
 (Preencher com sua imagem)
+https://hub.docker.com/r/speedowagon/estoque
 
 ```bash
 docker pull SEU_USUARIO/estoque
