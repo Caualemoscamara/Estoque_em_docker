@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  server:
+    build: .
+    container_name: server
+    command: ./server
+    ports:
+      - "8080:8080"
+    networks:
+      - appnet
+
+  client:
+    build: .
+    container_name: client
+    command: ./client
+    stdin_open: true
+    tty: true
+    depends_on:
+      - server
+    networks:
+      - appnet
+
+networks:
+  appnet:
