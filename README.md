@@ -122,7 +122,7 @@ definido no `Dockerfile`.
 https://hub.docker.com/r/speedowagon/estoque
 
 ```bash
-docker pull SEU_USUARIO/estoque
+docker pull speedowagon/estoque
 docker compose up
 ```
 
