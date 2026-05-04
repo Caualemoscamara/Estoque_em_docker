@@ -35,10 +35,27 @@ O projeto utiliza:
 ### 1. Build e execução
 
 ```bash
-docker compose up --build
 
-docker compose up server
-docker run -p 8080:8080 speedowagon/estoque
+docker build -t speedowagon/estoque .
+docker push speedowagon/estoque
+
+docker compose up server -d
+
+em outro terminal
+
+sudo docker compose run client
+
+apos o terminal estar rodando para instanciar outros clientes de forma rapida
+
+rodar 
+docker compose exec client ./clientDocker server 8080
+
+ou 
+
+docker exec -it client ./clientDocker server 8080
+
+
+
 
 ```
 
