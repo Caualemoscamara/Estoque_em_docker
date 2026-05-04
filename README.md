@@ -36,10 +36,10 @@ O projeto utiliza:
 
 ```bash
 
-docker build -t speedowagon/estoque .
-docker push speedowagon/estoque
+sudo docker build -t speedowagon/estoque .
+sudo docker push speedowagon/estoque
 
-docker compose up server -d
+sudo docker compose up server -d
 
 em outro terminal
 
