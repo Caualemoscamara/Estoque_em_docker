@@ -1,0 +1,21 @@
+services:
+  server:
+    image: speedowagon/estoque
+    container_name: server
+    command: ./server
+    ports:
+      - "8080:8080"
+    networks:
+      - appnet
+
+  client:
+    image: speedowagon/estoque
+    container_name: client
+    command: ./clientDocker server 8080
+    stdin_open: true
+    tty: true
+    networks:
+      - appnet
+
+networks:
+  appnet:
